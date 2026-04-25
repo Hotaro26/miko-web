@@ -3,6 +3,10 @@
     {
       "source": "/mangadex-api/:path*",
       "destination": "https://api.mangadex.org/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
