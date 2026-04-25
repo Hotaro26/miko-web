@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.mangadex.org';
+const BASE_URL = window.location.hostname === 'localhost' ? 'https://api.mangadex.org' : '/mangadex-api';
 
 export interface Manga {
   id: string;
