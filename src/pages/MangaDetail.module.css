@@ -140,6 +140,33 @@
   align-items: center;
   height: 100vh;
   color: var(--on-surface);
+  text-align: center;
+  padding: 32px;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--surface-variant);
+  padding: 32px;
+  border-radius: var(--radius-large);
+}
+
+.retryBtn {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-medium);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.retryBtn:hover {
+  transform: scale(1.05);
 }
 
 .fab {

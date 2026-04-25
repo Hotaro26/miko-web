@@ -66,7 +66,7 @@ export const getManga = async (id: string): Promise<Manga> => {
 };
 
 export const getMangaChapters = async (mangaId: string): Promise<Chapter[]> => {
-  const res = await fetchWithTimeout(`${BASE_URL}/manga/${mangaId}/feed?translatedLanguage[]=en&order[chapter]=asc&limit=100&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&includeExternalVol=0`);
+  const res = await fetchWithTimeout(`${BASE_URL}/manga/${mangaId}/feed?translatedLanguage[]=en&order[chapter]=asc&limit=100&includeExternalVol=0`);
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
   const json = await res.json();
   return json.data;

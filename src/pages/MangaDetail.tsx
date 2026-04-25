@@ -15,10 +15,12 @@ export const MangaDetail: React.FC = () => {
   const [manga, setManga] = useState<Manga | null>(null);
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
     const fetchData = async () => {
+      setError(null);
       try {
         const [mangaData, chaptersData] = await Promise.all([
           getManga(id),
@@ -26,8 +28,9 @@ export const MangaDetail: React.FC = () => {
         ]);
         setManga(mangaData);
         setChapters(chaptersData);
-      } catch (err) {
+      } catch (err: any) {
         console.error(err);
+        setError(err.message || 'Failed to load manga details');
       } finally {
         setLoading(false);
       }
@@ -36,7 +39,18 @@ export const MangaDetail: React.FC = () => {
   }, [id]);
 
   if (loading) return <Loading fullScreen message="Fetching details..." />;
-  if (!manga) return <div className={styles.center}>Manga not found</div>;
+  
+  if (error || !manga) {
+    return (
+      <div className={styles.center}>
+        <div className={styles.errorContainer}>
+          <p>{error || 'Manga not found'}</p>
+          <button onClick={() => window.location.reload()} className={styles.retryBtn}>Retry</button>
+          <button onClick={() => navigate(-1)} className={styles.retryBtn}>Go Back</button>
+        </div>
+      </div>
+    );
+  }
 
   const title = manga.attributes.title.en || Object.values(manga.attributes.title)[0];
   const description = manga.attributes.description.en || Object.values(manga.attributes.description)[0];
