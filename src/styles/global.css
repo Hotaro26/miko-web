@@ -1,0 +1,79 @@
+:root {
+  /* Fallbacks */
+  --primary: #d0bcff;
+  --on-primary: #381e72;
+  --primary-container: #4f378b;
+  --on-primary-container: #eaddff;
+  --secondary: #ccc2dc;
+  --on-secondary: #332d41;
+  --secondary-container: #4a4458;
+  --on-secondary-container: #e8def8;
+  --tertiary: #efb8c8;
+  --on-tertiary: #492532;
+  --surface: #1c1b1f;
+  --on-surface: #e6e1e5;
+  --surface-variant: #49454f;
+  --on-surface-variant: #cac4d0;
+  --background: #141218;
+  --outline: #938f99;
+  
+  --radius-extra-small: 4px;
+  --radius-small: 8px;
+  --radius-medium: 12px;
+  --radius-large: 16px;
+  --radius-extra-large: 28px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Reset default link styles */
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+a:visited {
+  color: inherit !important;
+}
+
+button, a, .card, .historyItem, .chapterItem, .shortcutBtn, .themeCard {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), 
+              background-color 0.2s cubic-bezier(0.2, 0, 0, 1),
+              box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1),
+              opacity 0.2s cubic-bezier(0.2, 0, 0, 1),
+              color 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+button:hover, a:hover {
+  cursor: pointer;
+}
+
+button:active, a:active {
+  transform: scale(0.96);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
